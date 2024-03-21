@@ -72,7 +72,9 @@ class ModelGenerator:
                 # todo: need to add other popular PostgreSQL & MySQL functions
                 column.default = "datetime.datetime.now()"
             elif "'" not in column.default:
-                column.default = f"'{column['default']}'"
+                column.default = "None"
+            if column.default = 'NULL':
+                column.default = "None"
         column_str += pt.pydantic_default_attr.format(default=column.default)
         return column_str
 
